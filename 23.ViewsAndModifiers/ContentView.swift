@@ -11,10 +11,15 @@ struct ContentView: View {
     @State private var useRedText = false
     
     var body: some View {
-        Button("Hello, world!"){
-            useRedText.toggle()
+        VStack {
+            Text("First text")
+                .font(.largeTitle)
+            Text("Second text")
+            Text("Third text")
+            Text("Fourth text")
         }
-        .foregroundStyle(useRedText ? .red : .blue)
+        .font(.title)
+        .blur(radius: 5)
     }
 }
 
