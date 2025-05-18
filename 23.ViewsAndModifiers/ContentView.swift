@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//структура - модификатор
 struct Title: ViewModifier {
     func body(content: Content) -> some View {
         content
@@ -18,10 +19,38 @@ struct Title: ViewModifier {
     }
 }
 
+extension View {
+    func titleStyle() -> some View {
+        modifier(Title())
+    }
+}
+
+struct WaterMark: ViewModifier {
+    var text: String
+    
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottomTrailing) {
+            content
+            
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(.white)
+                .padding(5)
+                .background(.black)
+        }
+    }
+}
+
+extension View {
+    func watermarked(with text: String) -> some View {
+        modifier(WaterMark(text: text))
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         Text("Hello, world!")
-            .modifier(Title())
+            .titleStyle()
     }
 }
 
