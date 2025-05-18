@@ -49,8 +49,9 @@ extension View {
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .titleStyle()
+        Color.blue
+            .frame(width: 300, height: 200)
+            .watermarked(with: "Hacking with Swift")
     }
 }
 
