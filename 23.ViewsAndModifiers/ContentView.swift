@@ -28,7 +28,10 @@ struct GridStack<Content: View>: View {
 struct ContentView: View {
     var body: some View {
         GridStack(rows: 4, columns: 4) { row, col in
-            Text("R\(row) C\(col)")
+            HStack {
+                Image(systemName: "\(row * 4 + col).circle")
+                Text("R\(row) C\(col)")
+            }
         }
     }
 }
